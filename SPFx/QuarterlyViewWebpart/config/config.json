@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "quarterly-view-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/quarterlyView/QuarterlyViewWebPart.js",
+          "manifest": "./src/webparts/quarterlyView/QuarterlyViewWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "QuarterlyViewWebPartStrings": "lib/webparts/quarterlyView/loc/{locale}.js"
+  }
+}

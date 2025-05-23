@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "quarterly-view-webpart-client-side-solution",
+    "id": "3e6f6b0f-a825-4f8b-9fe1-7d455f9de2b0",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.21.1"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "quarterly-view-webpart description"
+      },
+      "longDescription": {
+        "default": "quarterly-view-webpart description"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "quarterly-view-webpart Feature",
+        "description": "The feature that activates elements of the quarterly-view-webpart solution.",
+        "id": "a085dd89-d753-421b-b9b6-9fff8494b6a1",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/quarterly-view-webpart.sppkg"
+  }
+}
