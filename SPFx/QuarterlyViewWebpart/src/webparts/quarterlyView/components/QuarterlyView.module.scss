@@ -1,34 +1,133 @@
-@import '~@fluentui/react/dist/sass/References.scss';
+$cardShadow1: rgba(0, 0, 0, 0.133);
+$cardShadow2: rgba(0, 0, 0, 0.11);
+$cardBackgroundColor: rgb(255, 255, 255);
+$cardBorderColor: rgb(237, 235, 233);
+
+.quarterlyViewWrapper {
+    overflow: hidden;
+}
 
 .quarterlyView {
-  overflow: hidden;
-  padding: 1em;
-  color: "[theme:bodyText, default: #323130]";
-  color: var(--bodyText);
-  &.teams {
-    font-family: $ms-font-family-fallbacks;
-  }
-}
+    box-shadow: $cardShadow1 0px 1.6px 3.6px 0px, $cardShadow2 0px 0.3px 0.9px 0px;
+    cursor: default;
+    outline: none;
+    background-color: $cardBackgroundColor;
+    border: 1px solid $cardBorderColor !important;
+    padding: 12px;
 
-.welcome {
-  text-align: center;
-}
+    .header {
+        display: flex;
+        flex-direction: row;
+        gap: 32px;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 12px;
 
-.welcomeImage {
-  width: 100%;
-  max-width: 420px;
-}
-
-.links {
-  a {
-    text-decoration: none;
-    color: "[theme:link, default:#03787c]";
-    color: var(--link); // note: CSS Custom Properties support is limited to modern browsers only
-
-    &:hover {
-      text-decoration: underline;
-      color: "[theme:linkHovered, default: #014446]";
-      color: var(--linkHovered); // note: CSS Custom Properties support is limited to modern browsers only
+        span {
+            font-weight: 600;
+            font-size: 18px;
+        }
     }
-  }
+
+    .table {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        border: 1px solid $cardBorderColor;
+
+        div {
+            flex: 1;
+        }
+
+        .tasks {
+            max-width: 200px;
+
+            div:first-child {
+                height: 51px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            div:not(:first-child) {
+                border-top: 1px solid $cardBorderColor;
+                height: 24px;
+                display: flex;
+                padding: 2px 6px;
+                border-right: none;
+                display: flex;
+                align-items: center;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                display: block;
+            }
+        }
+
+        .month {
+            .monthTitle {
+                text-align: center;
+                padding: 4px 2px;
+                border-bottom: 1px solid $cardBorderColor;
+                box-shadow: 0 1.6px 3.6px 0 rgba(0, 0, 0, 0.133), 0 0.3px 0.9px 0 rgba(0, 0, 0, 0.11);
+            }
+
+            border: 1px solid $cardBorderColor;
+            border-top: none;
+            border-bottom: none;
+        }
+
+        .month:not(:nth-child(2)):not(:last-child) {
+            border-left: none;
+            border-right: none;
+        }
+
+        .month:first-child {
+            border-left: none;
+        }
+
+        .month:last-child {
+            border-right: none;
+        }
+
+        .weeks {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            div {
+                border-bottom: 1px solid $cardBorderColor;
+                border-left: 1px solid $cardBorderColor;
+                text-align: right;
+                padding: 2px 6px;
+            }
+
+            div:first-child {
+                border-left: none;
+            }
+
+            div:last-child {
+                border-right: none;
+            }
+        }
+
+        .timeline {
+            display: flex;
+            flex-direction: row;
+            .week {
+                min-height: 28px;
+                height: 28px;
+                max-height: 28px;
+                border-left: 1px solid $cardBorderColor;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+            }
+            .week:first-child {
+                border-left: none;
+            }
+        }
+    }
 }

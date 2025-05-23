@@ -1,7 +1,5 @@
+import QuarterlyViewApi from '../QuarterlyViewApi';
+
 export interface IQuarterlyViewProps {
-  description: string;
-  isDarkTheme: boolean;
-  environmentMessage: string;
-  hasTeamsContext: boolean;
-  userDisplayName: string;
+    api: QuarterlyViewApi;
 }
