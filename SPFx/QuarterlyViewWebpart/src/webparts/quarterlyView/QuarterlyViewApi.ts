@@ -26,10 +26,24 @@ export default class QuarterlyViewApi {
         const tasks: ITaskListItem[] = await this._sp.web.lists
             .getById(this.taskListId)
             .items.filter(
-                `${TasksList.fields.startDate} ge datetime'${startDate.toISOString()}' and ${
+                `${TasksList.fields.startDate} le datetime'${endDate.toISOString()}' and ${
                     TasksList.fields.endDate
-                } le datetime'${endDate.toISOString()}'`
+                } ge datetime'${startDate.toISOString()}'`
             )();
         return tasks;
+    }
+
+    public async getTasksCount(): Promise<number> {
+        const tasks: ITaskListItem[] = await this._sp.web.lists.getById(this.taskListId).items();
+        return tasks.length;
+    }
+
+    public async addTask(task: ITaskListItem): Promise<void> {
+        await this._sp.web.lists.getById(this.taskListId).items.add({
+            Title: task.Title,
+            StartDate: task.StartDate,
+            EndDate: task.EndDate,
+            Color: task.Color
+        });
     }
 }

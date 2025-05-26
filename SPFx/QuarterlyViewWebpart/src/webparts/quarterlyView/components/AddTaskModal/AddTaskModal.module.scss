@@ -1,0 +1,40 @@
+.modalContainer {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+.modalHeader {
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    padding: 12px 12px 14px 24px;
+}
+
+.modalBody {
+    flex: 4 4 auto;
+    padding: 0 24px 24px 24px;
+}
+
+.modalFooter {
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 24px;
+    gap: 12px;
+
+    .spinnerText {
+        display: flex;
+        gap: 6px;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.closeButton {
+    margin-left: auto;
+    margin-right: 2px;
+    margin-top: 4px;
+}

@@ -9,6 +9,8 @@ import QuarterlyView from './components/QuarterlyView';
 import { IQuarterlyViewProps } from './components/IQuarterlyViewProps';
 import QuarterlyViewApi from './QuarterlyViewApi';
 import { IListInfo } from '@pnp/sp/lists';
+import { setDefaultOptions } from 'date-fns';
+import { enUS, et } from 'date-fns/locale';
 
 export interface IQuarterlyViewWebPartProps {
     api: string;
@@ -21,7 +23,8 @@ export default class QuarterlyViewWebPart extends BaseClientSideWebPart<IQuarter
 
     public render(): void {
         const element: React.ReactElement<IQuarterlyViewProps> = React.createElement(QuarterlyView, {
-            api: this.quarterlyViewApi
+            api: this.quarterlyViewApi,
+            locale: this.context.pageContext.cultureInfo.currentCultureName
         });
 
         ReactDom.render(element, this.domElement);
@@ -30,6 +33,7 @@ export default class QuarterlyViewWebPart extends BaseClientSideWebPart<IQuarter
     protected async onInit(): Promise<void> {
         this.quarterlyViewApi = new QuarterlyViewApi(this.context);
         this.lists = await this.quarterlyViewApi.getLists();
+        setDefaultOptions({ locale: this.context.pageContext.cultureInfo.currentCultureName === 'et-ee' ? et : enUS });
 
         if (this.properties.taskListId) {
             this.quarterlyViewApi.taskListId = this.properties.taskListId;

@@ -1,4 +1,6 @@
+import { IWeekData } from './IWeekData';
+
 export type IMonthData = {
     month: string;
-    weeks: number[];
+    weeks: IWeekData[];
 };
